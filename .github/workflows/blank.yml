@@ -37,6 +37,6 @@ jobs:
         if: >
           github.actor == 'wechuli'
           && contains(github.event.pull_request.body, 'stuff')
-        run: echo $actor
+        run: echo $actor  - Hooray, I run
           
         
