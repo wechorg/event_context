@@ -38,6 +38,7 @@ jobs:
       - name: conditional echo
         if: >
           github.actor == 'wechuli'
+          && contains(github.event.pull_request.body, 'stuff')
         run: echo $actor
           
         
