@@ -43,8 +43,7 @@ jobs:
               https://api.github.com/repos/dsaltares/fetch-gh-release-asset/releases
       - name: Check API without auth
         run: |
-             curl -v -H "Accept: application/vnd.github.v3+json" \
-              -H "Authorization: token " \
+             curl -v -H "Accept: application/vnd.github.v3+json" \            
               https://api.github.com/repos/dsaltares/fetch-gh-release-asset/releases
       - name: Get the latest release
 #         env:
