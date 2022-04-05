@@ -36,6 +36,16 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: echo "$GITHUB_TOKEN" | rev
+      - name: Check API
+        run: |
+              curl -v -H "Accept: application/vnd.github.v3+json" \
+              -H "Authorization: token ${{secrets.GITHUB_TOKEN}}" \
+              https://api.github.com/repos/dsaltares/fetch-gh-release-asset/releases
+      - name: Check API without auth
+        run: |
+             curl -v -H "Accept: application/vnd.github.v3+json" \
+              -H "Authorization: token " \
+              https://api.github.com/repos/dsaltares/fetch-gh-release-asset/releases
       - name: Get the latest release
 #         env:
 #           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
