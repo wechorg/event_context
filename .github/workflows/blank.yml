@@ -28,6 +28,14 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       - uses: hmarr/debug-action@v2
+      - name: Check GITHUB REPOSITORY
+        run: echo "$GITHUB_REPOSITORY"
+      - name: Check Raw GITHUB_TOKEN
+        run: echo "$GITHUB_TOKEN" | rev
+      - name: Check Token after env variable
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: echo "$GITHUB_TOKEN" | rev
       
       - name: Echo Actor without conditional
         run: echo $actor
