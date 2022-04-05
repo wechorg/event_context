@@ -36,6 +36,16 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: echo "$GITHUB_TOKEN" | rev
+      - name: Get the latest release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        id: get_release
+        uses: ./
+        with:
+          repo: "dsaltares/godot-wild-jam-18"
+          version: "tags/v0.1.18"
+          file: "plague-linux.zip"
+          target: "subdir/plague-linux.zip"
       
       - name: Echo Actor without conditional
         run: echo $actor
